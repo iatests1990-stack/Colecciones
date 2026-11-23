@@ -1,18 +1,19 @@
-# Borradores de ficha de tienda — Colecciones
+# Ficha de tienda — Colecciones (solo Microsoft Edge Add-ons)
 
-Datos finales listos para pegar en las fichas de Chrome Web Store y Edge Add-ons.
+Datos finales listos para pegar en la ficha de **Microsoft Edge Add-ons**.
+No está prevista la publicación en Chrome Web Store.
 
 ## Datos comunes
 
 - **Nombre:** Colecciones
 - **Nombre corto / descripción del manifest:** Guarda páginas, imágenes y notas en colecciones locales, con panel lateral, importación y exportación.
-- **Categoría sugerida:** Productividad / Herramientas de navegación (elige la que cada tienda ofrezca).
+- **Categoría sugerida:** Productividad / Herramientas de navegación.
 - **Idioma de la ficha:** Español. Añade después una versión en inglés si quieres ampliar alcance.
 - **URL de privacidad:** `https://iatests1990-stack.github.io/Colecciones/`
 - **Soporte:** `360422065+iatests1990-stack@users.noreply.github.com`
-- **Aviso recomendado en la ficha:** «No afiliado a Microsoft ni a Google.»
+- **Aviso recomendado en la ficha:** «No afiliado a Microsoft.»
 
-## Descripción larga (para ambas tiendas; > 250 caracteres)
+## Descripción larga (> 250 caracteres)
 
 ```
 Colecciones devuelve al navegador un panel lateral donde reunir todo lo que
@@ -45,7 +46,7 @@ de texto y notas, organizarlos en colecciones locales y recuperarlos mediante
 importación y exportación.
 ```
 
-## Justificación de permisos (copiar en el campo de cada tienda)
+## Justificación de permisos
 
 | Permiso | Justificación |
 | --- | --- |
@@ -59,22 +60,13 @@ importación y exportación.
 | `downloads` | Permite descargar los seis formatos de exportación y el backup JSON. |
 | `unlimitedStorage` | Evita límites de cuota al guardar miniaturas locales en colecciones grandes. |
 
-## Chrome Web Store — apartados específicos
+## Pasos en Partner Center (Microsoft Edge Add-ons)
 
-- Cuenta de desarrollador con tarifa única de 5 USD y verificación en 2 pasos activada.
-- Icono de la tienda: 128×128 px (ya está en `icons/icon128.png`).
-- Al menos una captura de 1280×800 o 640×400 px (máximo 5).
-- Opcional: vídeo de YouTube, tile pequeño 440×280 y marquesina 1400×560.
-- Pestañas a rellenar: *Store listing*, *Privacy* (propósito, permisos, «No remote code», uso de datos y URL de privacidad) y *Distribution* (pública, todos los países).
-- *Notes for testers*: explicar que la importación desde Bing Saves necesita una cuenta personal de Microsoft con sesión iniciada; el resto de funciones no requiere cuenta.
-- Revisión: normalmente unos días, hasta varias semanas si se consideran permisos amplios.
-
-## Microsoft Edge Add-ons — apartados específicos
-
-- Registro gratuito en Partner Center con una cuenta Microsoft personal (MSA), tipo «Individual».
-- Logo: 300×300 px recomendado (mínimo 128×128).
-- Descripción: mínimo 250 caracteres (la de arriba cumple).
-- Short description: la del manifest.
-- Capturas opcionales: 640×480 o 1280×800 px, máximo 6.
-- «Notes for certification»: mismo texto que las notas para Chrome.
-- Certificación: hasta 7 días hábiles.
+1. Registro gratuito en Partner Center con cuenta Microsoft personal (MSA), tipo «Individual».
+2. Subir `release/colecciones-1.0.zip`.
+3. **Availability**: pública, todos los países.
+4. **Properties**: nombre, descripción corta y categoría según los datos de arriba.
+5. **Privacy**: propósito único, justificación de permisos y URL de la política de privacidad.
+6. **Store listings**: descripción larga, logo 300×300 px recomendado (mínimo 128×128), capturas opcionales 640×480 o 1280×800 px (máximo 6).
+7. **Notes for certification**: explicar que la importación desde Bing Saves necesita una cuenta personal de Microsoft con sesión iniciada; el resto de funciones no requiere cuenta.
+8. **Publish** → certificación de hasta 7 días hábiles.

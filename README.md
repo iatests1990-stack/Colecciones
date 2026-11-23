@@ -6,7 +6,7 @@ El panel lateral reproduce las colecciones, tarjetas con miniatura, notas, secci
 
 ## Compatibilidad
 
-- **Microsoft Edge** y **Google Chrome** (y otros navegadores Chromium que expongan `chrome.sidePanel`).
+- **Microsoft Edge** es el navegador objetivo y el único con publicación prevista en su tienda de extensiones. También funciona en Google Chrome y otros navegadores Chromium que expongan `chrome.sidePanel`, pero no se publicará en Chrome Web Store.
 - **Chromium ≥ 114**: es la primera versión en la que `chrome.sidePanel` está disponible de forma fiable.
 - Se recomienda probar en Edge y Chrome; Brave, Vivaldi y Opera pueden presentar problemas con el panel lateral.
 - No se admite móvil ni navegadores no Chromium.
