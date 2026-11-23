@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Política de privacidad — Colecciones</title>
+  <style>
+    body { max-width: 760px; margin: 40px auto; padding: 0 20px; font: 16px/1.6 system-ui, sans-serif; color: #222; }
+    h1 { font-size: 28px; }
+    h2 { font-size: 20px; margin-top: 32px; }
+    code { background: #eee; padding: 1px 4px; border-radius: 4px; }
+    .notice { background: #fff6d5; border-left: 4px solid #d9a400; padding: 12px 16px; }
+  </style>
+</head>
+<body>
+  <h1>Política de privacidad — Colecciones</h1>
+  <p><strong>Última actualización:</strong> 23 de noviembre de 2026.</p>
+
+  <p class="notice">
+    Antes de publicar: sustituye <code>[NOMBRE DEL PUBLICADOR]</code> y
+    <code>[TU_EMAIL@ejemplo.com]</code> por tus datos reales y publica esta página
+    en una URL pública y estable (por ejemplo, GitHub Pages). Esa URL es la que
+    debes pegar en el campo «Privacy policy URL» de ambas tiendas.
+  </p>
+
+  <h2>Quién publica esta extensión</h2>
+  <p>
+    «Colecciones» es publicada por [NOMBRE DEL PUBLICADOR]. No está afiliada a
+    Microsoft, Google ni a ningún otro fabricante de navegadores.
+  </p>
+
+  <h2>Qué hace la extensión</h2>
+  <p>
+    Proporciona un panel lateral para guardar páginas web, enlaces, imágenes,
+    fragmentos de texto y notas propias en colecciones organizadas en secciones,
+    y para recuperarlas, ordenarlas, exportarlas e importarlas más tarde.
+  </p>
+
+  <h2>Datos que maneja</h2>
+  <p>
+    La extensión guarda en el almacenamiento local del navegador
+    (<code>chrome.storage.local</code>) los títulos y las URL de los elementos,
+    el texto seleccionado o escrito a mano, las miniaturas (como referencia a su
+    URL original o como imagen local reducida), los nombres de colecciones y
+    secciones y las preferencias de interfaz.
+  </p>
+  <p>
+    Esos datos solo existen en el equipo del usuario. La extensión <strong>no
+    envía datos a ningún servidor propio ni de terceros</strong>, no usa
+    analítica y no instala cookies de seguimiento.
+  </p>
+
+  <h2>Acceso a páginas web</h2>
+  <p>
+    Los permisos de host se usan únicamente para que el content script pueda
+    leer la página, el enlace o la imagen sobre la que el usuario está actuando
+    cuando pulsa «Guardar en Colecciones», guarda la selección o arrastra un
+    elemento al panel. No se recopila el historial de navegación ni el contenido
+    de páginas que el usuario no guarda explícitamente.
+  </p>
+  <p>
+    La importación desde Bing Saves se realiza leyendo el DOM de la página en la
+    que el usuario ya ha iniciado sesión, previa acción expresa del usuario. No
+    se realizan peticiones de red propias, no se leen cookies y no se modifica
+    ningún dato de Bing Saves.
+  </p>
+
+  <h2>Sincronización opcional por archivo</h2>
+  <p>
+    Si el usuario la activa, la extensión escribe su estado en un archivo JSON
+    que el propio usuario elige dentro de una carpeta de su nube preferida. El
+    archivo lo gestiona el proveedor de nube del usuario; la extensión no tiene
+    acceso a esa cuenta ni envía el archivo a ningún servidor.
+  </p>
+
+  <h2>Conservación y eliminación</h2>
+  <p>
+    Los datos se conservan en el navegador hasta que el usuario elimina las
+    colecciones o desinstala la extensión. El usuario puede exportar en cualquier
+    momento una copia completa en JSON desde el menú «⋯ → Exportar → JSON…».
+  </p>
+
+  <h2>Permisos solicitados</h2>
+  <ul>
+    <li><code>sidePanel</code>: mostrar el panel lateral de Colecciones.</li>
+    <li><code>storage</code>: guardar colecciones y preferencias en el equipo.</li>
+    <li><code>contextMenus</code>: «Guardar en Colecciones» en el menú contextual.</li>
+    <li><code>commands</code>: atajos de teclado para abrir el panel y guardar la página.</li>
+    <li><code>scripting</code> y host <code>&lt;all_urls&gt;</code>: leer solo el contenido que el usuario decide guardar y detectar el atajo alternativo.</li>
+    <li><code>offscreen</code>: mantener la sincronización por archivo con el panel cerrado.</li>
+    <li><code>downloads</code>: descargar las exportaciones CSV, Markdown, HTML, XLSX y JSON.</li>
+    <li><code>unlimitedStorage</code>: permitir colecciones con muchas miniaturas locales.</li>
+  </ul>
+
+  <h2>Contacto</h2>
+  <p>
+    Para preguntas sobre privacidad o soporte: [TU_EMAIL@ejemplo.com].
+  </p>
+</body>
+</html>

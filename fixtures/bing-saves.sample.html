@@ -1,0 +1,80 @@
+<!doctype html>
+<!--
+  fixture: bing-saves.sample.html
+  HTML estático de referencia (captura representativa de https://www.bing.com/saves).
+  No se usa en producción: documenta el marcado que consumen los selectores de
+  content/bing-saves.js (objeto SEL) y sirve para la validación estática de R3.
+  Si Bing cambia su marcado, actualizar este fixture junto con SEL.
+
+  Cobertura de selectores:
+    .collection / [role="tab"].collection -> tiles + rail (una oculta tras «Ver más»)
+    .card                                 -> tarjetas de contenido
+    .card.card_refresh                    -> placeholder a excluir
+    a.card__link / .card__title /
+    .card__label / .card__footnote        -> enlace y texto de cada tarjeta
+-->
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Guardados - Bing</title>
+</head>
+<body>
+  <nav aria-label="Colecciones" role="tablist">
+    <!-- Pestaña activa al cargar: identifica la raíz de forma independiente del idioma. -->
+    <button class="collection" role="tab" aria-selected="true">Guardados</button>
+    <button class="collection" role="tab" aria-selected="false">Investigación</button>
+    <!-- Revelada por el control «Ver más» del rail. -->
+    <button class="collection" role="tab" aria-selected="false" hidden>Viajes</button>
+    <button role="button" id="see-more">Ver más</button>
+  </nav>
+
+  <main>
+    <h1>Guardados</h1>
+    <section aria-label="Colecciones">
+      <a class="collection" href="/saves?id=investigacion">Investigación</a>
+      <a class="collection" href="/saves?id=viajes">Viajes</a>
+    </section>
+
+    <section aria-label="Tarjetas">
+      <!-- Tarjeta con enlace http(s), título, etiqueta, nota y miniatura. -->
+      <article class="card">
+        <img class="card__thumb" src="https://img.example.com/tokyo.jpg" alt="">
+        <a class="card__link" href="https://www.example.com/tokyo-guide" title="Tokyo neighborhood guide"></a>
+        <div class="card__title">Tokyo neighborhood guide</div>
+        <div class="card__label">example.com</div>
+        <div class="card__footnote">Guardado el 12/11</div>
+      </article>
+
+      <!-- Segunda tarjeta con enlace; duplicada en «Investigación». -->
+      <article class="card">
+        <a class="card__link" href="https://www.example.com/home">Home office setup</a>
+        <div class="card__title">Home office setup</div>
+      </article>
+
+      <!-- Tarjeta sin URL con texto: se importa como nota (NO cuenta como skipped). -->
+      <article class="card">
+        <div class="card__title">Nota sin enlace</div>
+        <div class="card__footnote">Comprar café y filtros para la prensa francesa</div>
+      </article>
+
+      <!-- Tarjeta sin URL y sin texto, solo miniatura: se importa como imagen. -->
+      <article class="card">
+        <img src="https://img.example.com/solo-imagen.png" alt="Solo imagen">
+      </article>
+
+      <!-- Tarjeta vacía: se cuenta en skipped (no se añade también como ítem). -->
+      <article class="card"></article>
+
+      <!-- Placeholder de refresco: se descarta por completo. -->
+      <article class="card card_refresh">Cargando más…</article>
+    </section>
+  </main>
+
+  <!-- Estado sin sesión (R3, Task 12): el scraper detecta estas cadenas cuando
+       no hay colecciones visibles y emite {payload:null, error:'NO_LOGIN'}. -->
+  <template id="login-screen">
+    <h1>Start collecting</h1>
+    <a href="https://login.live.com/">Sign in</a>
+  </template>
+</body>
+</html>

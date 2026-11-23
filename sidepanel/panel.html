@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es" data-theme="system">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Colecciones</title>
+    <link rel="stylesheet" href="panel.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <button id="back-btn" class="icon-btn" type="button" title="Atrás" aria-label="Atrás" hidden>‹</button>
+      <h1 id="view-title">Colecciones</h1>
+      <button id="menu-btn" class="icon-btn" type="button" title="Más opciones" aria-label="Más opciones" aria-haspopup="true" aria-expanded="false">⋯</button>
+    </header>
+
+    <nav id="menu" class="menu" aria-label="Opciones" hidden>
+      <button type="button" data-accion="sort">Ordenar…</button>
+      <div class="menu-grupo">
+        <span class="menu-titulo">Importar</span>
+        <button type="button" data-accion="import-csv">CSV…</button>
+        <button type="button" data-accion="import-bing">Bing Saves…</button>
+        <button type="button" data-accion="import-sqlite">Importar base de datos de Edge…</button>
+        <button type="button" data-accion="import-json">JSON…</button>
+      </div>
+      <div class="menu-grupo">
+        <span class="menu-titulo">Exportar</span>
+        <button type="button" data-accion="export-csv">CSV…</button>
+        <button type="button" data-accion="export-markdown">Markdown…</button>
+        <button type="button" data-accion="export-html">HTML…</button>
+        <button type="button" data-accion="export-xlsx">XLSX…</button>
+        <button type="button" data-accion="export-json">JSON…</button>
+        <button type="button" data-accion="export-copy">Copiar enlaces</button>
+      </div>
+      <button type="button" data-accion="settings">Ajustes</button>
+    </nav>
+
+    <main id="list-view" class="vista">
+      <button id="new-collection" class="nueva-coleccion" type="button">+ Nueva colección</button>
+      <div id="collections-list" class="collections-list"></div>
+    </main>
+
+    <main id="detail-view" class="vista" hidden>
+      <div class="detail-tools">
+        <button id="rename-collection" type="button">Renombrar</button>
+        <button id="add-section" type="button">+ Sección</button>
+        <button id="open-all" type="button">Abrir todo</button>
+        <button id="delete-collection" class="peligro" type="button">Eliminar</button>
+      </div>
+      <div id="move-targets" class="move-targets" hidden></div>
+      <div id="items-list" class="items-list"></div>
+    </main>
+
+    <footer class="actionbar" aria-label="Añadir contenido">
+      <button type="button" data-accion="add-page"><span aria-hidden="true">＋</span>Añadir página</button>
+      <button type="button" data-accion="add-note"><span aria-hidden="true">✎</span>Nota</button>
+      <button type="button" data-accion="add-image"><span aria-hidden="true">▣</span>Imagen</button>
+      <button type="button" data-accion="add-all-tabs"><span aria-hidden="true">▤</span>Todas las pestañas</button>
+    </footer>
+
+    <dialog id="dialog" class="dialog"><div id="dialog-content"></div></dialog>
+
+    <input type="file" id="file-csv" accept=".csv,text/csv" hidden />
+    <input type="file" id="file-json" accept=".json,application/json" hidden />
+    <input type="file" id="file-sqlite" accept="*/*" title="collectionsSQLite" hidden />
+    <input type="file" id="file-sync" hidden />
+
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+    <script type="module" src="panel.js"></script>
+  </body>
+</html>

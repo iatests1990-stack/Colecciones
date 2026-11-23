@@ -1,0 +1,46 @@
+{
+  "rootName": "Guardados",
+  "collections": [
+    {
+      "name": "Guardados",
+      "skipped": 0,
+      "items": [
+        {
+          "title": "Tokyo neighborhood guide",
+          "url": "https://www.example.com/tokyo-guide",
+          "thumbnailUrl": "https://img.example.com/tokyo.jpg",
+          "type": "page"
+        },
+        {
+          "title": "Home office setup",
+          "url": "https://www.example.com/home",
+          "thumbnailUrl": "https://img.example.com/home.jpg",
+          "type": "link"
+        },
+        {
+          "title": "Nota sin enlace",
+          "text": "Comprar café y filtros para la prensa francesa",
+          "type": "note"
+        }
+      ]
+    },
+    {
+      "name": "Investigación",
+      "skipped": 0,
+      "items": [
+        {
+          "title": "Tokyo neighborhood guide",
+          "url": "https://www.example.com/tokyo-guide",
+          "type": "page"
+        },
+        {
+          "title": "Research paper",
+          "url": "https://www.example.com/research",
+          "thumbnailUrl": "https://img.example.com/research.png",
+          "type": "page"
+        }
+      ]
+    }
+  ],
+  "skipped": 1
+}

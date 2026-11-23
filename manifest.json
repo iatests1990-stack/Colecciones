@@ -1,0 +1,66 @@
+{
+  "manifest_version": 3,
+  "name": "Colecciones",
+  "description": "Guarda páginas, imágenes y notas en colecciones locales, con panel lateral, importación y exportación.",
+  "version": "1.0",
+  "minimum_chrome_version": "114",
+  "permissions": [
+    "sidePanel",
+    "storage",
+    "contextMenus",
+    "commands",
+    "scripting",
+    "offscreen",
+    "downloads",
+    "unlimitedStorage"
+  ],
+  "host_permissions": ["<all_urls>"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/shortcuts.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "side_panel": {
+    "default_path": "sidepanel/panel.html"
+  },
+  "action": {
+    "default_title": "Colecciones",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "commands": {
+    "open-panel": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y"
+      },
+      "description": "Abrir el panel de Colecciones"
+    },
+    "quick-save": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S"
+      },
+      "description": "Guardar la página actual en Colecciones"
+    },
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Alt+Shift+C"
+      }
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
