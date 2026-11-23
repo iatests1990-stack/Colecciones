@@ -46,17 +46,20 @@ como en la tienda.
 | B. Alfiler / pin | Muy claro como «guardar aquí» y legible a 16 px, pero dice poco de «colección» y es muy común. |
 | C. Pila de tarjetas con cinta | Representa mejor muchos elementos guardados, pero a 16 px se pierde el detalle. |
 
-El usuario eligió la opción **A** (cinta de marcador) y después pidió
-explícitamente usar esta imagen como icono:
-`https://images.icon-icons.com/10442/PNG/512/530189_bookmark_ve0eff7d145.png`
+El usuario eligió la opción **A** (cinta de marcador), pidió después una imagen
+concreta de Icon-Icons y, tras comprobar que su licencia gratis exige atribuir
+a un autor que no se puede identificar en el PNG, eligió sustituirla por un
+icono de licencia abierta.
 
-## Diseño acordado (actualizado)
+## Diseño acordado (final)
 
 - Forma: marcador azul con degradado y muesca inferior, sobre fondo
-  transparente, procedente de la imagen indicada por el usuario.
-- La imagen fuente (512×512) se guarda en `tools/bookmark-source.png` para que
-  el generador sea reproducible sin red.
-- El generador escala esa fuente con interpolación bicúbica de alta calidad.
+  transparente, derivado de `bookmark-fill` de **Bootstrap Icons** (MIT):
+  `https://github.com/twbs/icons/blob/main/icons/bookmark-fill.svg`
+- El generador dibuja la forma-vectorial con System.Drawing a cada tamaño; no
+  hay assets de terceros en el repositorio.
+- El texto de licencia MIT se incluye en
+  `licenses/BOOTSTRAP-ICONS-LICENSE.txt`.
 - Mismos archivos de destino: `icons/icon16.png`, `icon32.png`,
   `icon48.png`, `icon128.png`, más `release/logo-300.png` para la tienda.
 

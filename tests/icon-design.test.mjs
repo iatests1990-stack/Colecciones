@@ -45,7 +45,7 @@ test("los iconos reproducen el marcador azul con muesca y fondo transparente", (
     const [center, lower, corner] = sample(file, [
       [0.5, 0.4],
       [0.5, 0.82],
-      [0.1, 0.1],
+      [0.05, 0.05],
     ]);
     assert.equal(center[0], 255, `icono ${size}: el centro del marcador es opaco`);
     assert.ok(center[3] > 200 && center[2] > 90 && center[1] < 110, `icono ${size}: azul del marcador`);

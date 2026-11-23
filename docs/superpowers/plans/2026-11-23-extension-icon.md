@@ -12,7 +12,7 @@
 
 ## Global Constraints
 
-- Imagen fuente: `tools/bookmark-source.png`, marcador azul con degradado y fondo transparente, según el URL indicado por el usuario y el spec actualizado.
+- Forma fuente: `bookmark-fill` de Bootstrap Icons (MIT), dibujada por el generador; licencia en `licenses/BOOTSTRAP-ICONS-LICENSE.txt`.
 - Tamaños: 16, 32, 48, 128 px en `icons/`; 300×300 en `release/logo-300.png`.
 - El ZIP debe contener solo `manifest.json`, `background.js`, `sidepanel/`, `content/`, `lib/`, `offscreen/` e `icons/`.
 - No se publica en Chrome Web Store; no se suben datos personales al repo público.
@@ -50,7 +50,7 @@ Expected: PASS de dimensiones si los archivos actuales ya tienen esos tamaños; 
 
 - [ ] **Step 3: Implement `tools/generate-icons.ps1`**
 
-Escala con System.Drawing (interpolación bicúbica de alta calidad) la imagen `tools/bookmark-source.png` a los cuatro tamaños y al logo de 300 px, conservando la transparencia. Sin texto añadido.
+Dibuja con System.Drawing la forma `bookmark-fill` de Bootstrap Icons (curvas superiores, muesca inferior) a los cuatro tamaños y al logo de 300 px, rellena con degradado azul y conserva la transparencia. Sin texto añadido.
 
 - [ ] **Step 4: Run tests to verify they pass**
 
@@ -59,7 +59,7 @@ Expected: PASS (190 tests anteriores + los nuevos).
 
 - [ ] **Step 5: Commit**
 
-`git add tools/generate-icons.ps1 tools/bookmark-source.png tests/icon-design.test.mjs icons release/logo-300.png`
+`git add tools/generate-icons.ps1 licenses/ tests/icon-design.test.mjs tests/icon-license.test.mjs icons release/logo-300.png`
 `git commit -m "feat: use the provided bookmark image as the extension icon"`
 
 ### Task 2: Regenerar el ZIP y recargar en Edge
