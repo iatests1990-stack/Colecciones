@@ -1,4 +1,7 @@
 ﻿.superpowers/
 .worktrees/
-release/
+release/*
+!release/colecciones-1.0.zip
+!release/logo-300.png
+!release/README.txt
 

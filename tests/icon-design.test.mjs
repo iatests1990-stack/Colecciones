@@ -13,16 +13,15 @@ function pngSize(file) {
   return { width: bytes.readUInt32BE(16), height: bytes.readUInt32BE(20) };
 }
 
-function iconColors(file) {
+function sample(file, points) {
   const ps = [
     "Add-Type -AssemblyName System.Drawing;",
     `$b=[System.Drawing.Bitmap]::FromFile('${file}');`,
-    "$a=$b.GetPixel([int]($b.Width*0.5),[int]($b.Height*0.4));",
-    "$c=$b.GetPixel([int]($b.Width*0.5),[int]($b.Height*0.82));",
-    "\"$($a.R.ToString('X2'))$($a.G.ToString('X2'))$($a.B.ToString('X2')),$($c.R.ToString('X2'))$($c.G.ToString('X2'))$($c.B.ToString('X2'))\";",
+    ...points.map(([x, y]) => `$p=$b.GetPixel([int]($b.Width*${x}),[int]($b.Height*${y})); "$($p.A),$($p.R),$($p.G),$($p.B)";`),
     "$b.Dispose()",
   ].join(" ");
-  return execFileSync("powershell", ["-NoProfile", "-Command", ps], { encoding: "utf8" }).trim();
+  const output = execFileSync("powershell", ["-NoProfile", "-Command", ps], { encoding: "utf8" }).trim();
+  return output.split(/\r?\n/).map((line) => line.split(",").map(Number));
 }
 
 test("los iconos declarados existen con sus dimensiones exactas", () => {
@@ -40,13 +39,24 @@ test("los iconos declarados existen con sus dimensiones exactas", () => {
   });
 });
 
-test("los iconos muestran la tarjeta azul y la cinta de marcador clara", () => {
+test("los iconos reproducen el marcador azul con muesca y fondo transparente", () => {
   for (const size of sizes) {
-    const [card, ribbon] = iconColors(path.join(root, "icons", `icon${size}.png`)).split(",");
-    assert.equal(card, "0F6CBD", `icono ${size}: color de la tarjeta`);
-    assert.equal(ribbon, "69B1E8", `icono ${size}: color de la cinta`);
+    const file = path.join(root, "icons", `icon${size}.png`);
+    const [center, lower, corner] = sample(file, [
+      [0.5, 0.4],
+      [0.5, 0.82],
+      [0.1, 0.1],
+    ]);
+    assert.equal(center[0], 255, `icono ${size}: el centro del marcador es opaco`);
+    assert.ok(center[3] > 200 && center[2] > 90 && center[1] < 110, `icono ${size}: azul del marcador`);
+    assert.ok(lower[0] < 200, `icono ${size}: la muesca inferior es transparente`);
+    assert.ok(corner[0] < 200, `icono ${size}: las esquinas son transparentes`);
   }
-  const [card, ribbon] = iconColors(path.join(root, "release", "logo-300.png")).split(",");
-  assert.equal(card, "0F6CBD", "logo 300: color de la tarjeta");
-  assert.equal(ribbon, "69B1E8", "logo 300: color de la cinta");
+  const logo = path.join(root, "release", "logo-300.png");
+  const [center, lower] = sample(logo, [
+    [0.5, 0.4],
+    [0.5, 0.82],
+  ]);
+  assert.equal(center[0], 255, "logo 300: centro opaco");
+  assert.ok(lower[0] < 200, "logo 300: muesca inferior transparente");
 });

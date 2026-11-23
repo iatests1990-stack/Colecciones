@@ -46,16 +46,18 @@ como en la tienda.
 | B. Alfiler / pin | Muy claro como «guardar aquí» y legible a 16 px, pero dice poco de «colección» y es muy común. |
 | C. Pila de tarjetas con cinta | Representa mejor muchos elementos guardados, pero a 16 px se pierde el detalle. |
 
-El usuario eligió la opción **A**.
+El usuario eligió la opción **A** (cinta de marcador) y después pidió
+explícitamente usar esta imagen como icono:
+`https://images.icon-icons.com/10442/PNG/512/530189_bookmark_ve0eff7d145.png`
 
-## Diseño acordado
+## Diseño acordado (actualizado)
 
-- Forma: tarjeta redondeada en `#0F6CBD` con una cinta de marcador que
-  sobresale por el borde inferior, en un azul más claro (`#69B1E8`).
-- Sin texto, sin degradados, sin trazos finos: solo dos áreas de color plano
-  para que la silueta sobreviva a 16 px.
-- La cinta es el elemento distintivo y se mantiene centrada.
-- Mismos archivos de destino que hoy: `icons/icon16.png`, `icon32.png`,
+- Forma: marcador azul con degradado y muesca inferior, sobre fondo
+  transparente, procedente de la imagen indicada por el usuario.
+- La imagen fuente (512×512) se guarda en `tools/bookmark-source.png` para que
+  el generador sea reproducible sin red.
+- El generador escala esa fuente con interpolación bicúbica de alta calidad.
+- Mismos archivos de destino: `icons/icon16.png`, `icon32.png`,
   `icon48.png`, `icon128.png`, más `release/logo-300.png` para la tienda.
 
 ## Lo que queda al implementador

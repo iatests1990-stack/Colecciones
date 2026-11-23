@@ -12,7 +12,7 @@
 
 ## Global Constraints
 
-- Colores: base `#0F6CBD`, cinta `#69B1E8`. Solo dos áreas planas, sin degradados ni trazos finos.
+- Imagen fuente: `tools/bookmark-source.png`, marcador azul con degradado y fondo transparente, según el URL indicado por el usuario y el spec actualizado.
 - Tamaños: 16, 32, 48, 128 px en `icons/`; 300×300 en `release/logo-300.png`.
 - El ZIP debe contener solo `manifest.json`, `background.js`, `sidepanel/`, `content/`, `lib/`, `offscreen/` e `icons/`.
 - No se publica en Chrome Web Store; no se suben datos personales al repo público.
@@ -21,8 +21,8 @@
 
 - Icono a 16 px: la cinta debe seguir distinguiéndose; verificación visual en la barra de Edge.
 - Fondo y transparencia: los PNG deben conservar el formato correcto y no quedar con un borde blanco; comprobación visual en Edge.
-- Coincidencia manifest/archivos: `tests/icons.test.mjs` comprueba que los cuatro tamaños declarados existen y tienen las dimensiones exactas.
-- Paquete de release: `tests/icons.test.mjs` comprueba que el ZIP contiene los cuatro iconos y el manifest.
+- Coincidencia manifest/archivos: `tests/icon-design.test.mjs` comprueba que los cuatro tamaños declarados existen y tienen las dimensiones exactas.
+- Paquete de release: `tests/release.test.mjs` comprueba que el ZIP contiene los cuatro iconos y el manifest, y que los artefactos están versionados.
 - Recarga en Edge: pulsar «Volver a cargar» en `edge://extensions` y confirmar con captura que aparece el icono nuevo.
 
 ---
@@ -41,7 +41,7 @@
 
 - [ ] **Step 1: Write the failing test**
 
-`tests/icons.test.mjs` comprueba: (1) los cuatro archivos de `icons/` existen y su cabecera PNG declara exactamente 16/32/48/128 px; (2) `release/logo-300.png` declara 300×300; (3) el manifest declara esos cuatro tamaños.
+`tests/icon-design.test.mjs` comprueba: (1) los cuatro archivos de `icons/` existen y su cabecera PNG declara exactamente 16/32/48/128 px; (2) `release/logo-300.png` declara 300×300; (3) el manifest declara esos cuatro tamaños y el dibujo es el marcador con muesca y fondo transparente.
 
 - [ ] **Step 2: Run test to verify it fails**
 
@@ -50,7 +50,7 @@ Expected: PASS de dimensiones si los archivos actuales ya tienen esos tamaños; 
 
 - [ ] **Step 3: Implement `tools/generate-icons.ps1`**
 
-Dibuja con System.Drawing una tarjeta redondeada `#0F6CBD` y una cinta centrada `#69B1E8` que sobresale por abajo; genera los cuatro tamaños y el logo de 300 px. Sin degradados ni texto.
+Escala con System.Drawing (interpolación bicúbica de alta calidad) la imagen `tools/bookmark-source.png` a los cuatro tamaños y al logo de 300 px, conservando la transparencia. Sin texto añadido.
 
 - [ ] **Step 4: Run tests to verify they pass**
 
@@ -59,8 +59,8 @@ Expected: PASS (190 tests anteriores + los nuevos).
 
 - [ ] **Step 5: Commit**
 
-`git add tools/generate-icons.ps1 tests/icons.test.mjs icons release/logo-300.png`
-`git commit -m "feat: replace placeholder icon with bookmark ribbon design"`
+`git add tools/generate-icons.ps1 tools/bookmark-source.png tests/icon-design.test.mjs icons release/logo-300.png`
+`git commit -m "feat: use the provided bookmark image as the extension icon"`
 
 ### Task 2: Regenerar el ZIP y recargar en Edge
 
@@ -91,4 +91,4 @@ Abrir `edge://extensions`, pulsar «Volver a cargar» en la tarjeta de Coleccion
 
 - [ ] **Step 5: Commit**
 
-`git add release/README.txt` (el ZIP está ignorado por git) y commit de documentación.
+`git add .gitignore release/` (los artefactos de release se versionan explícitamente) y commit de documentación.

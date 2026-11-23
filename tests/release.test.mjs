@@ -6,6 +6,20 @@ import path from "node:path";
 const root = path.resolve(import.meta.dirname, "..");
 const zip = path.join(root, "release", "colecciones-1.0.zip");
 
+test("los artefactos de release están versionados", () => {
+  const tracked = execFileSync("git", ["ls-files", "release/"], { cwd: root, encoding: "utf8" })
+    .trim()
+    .split(/\r?\n/)
+    .filter(Boolean);
+  for (const file of [
+    "release/colecciones-1.0.zip",
+    "release/logo-300.png",
+    "release/README.txt",
+  ]) {
+    assert.ok(tracked.includes(file), `${file} debe estar en git para sobrevivir a un checkout limpio`);
+  }
+});
+
 test("el ZIP de release contiene los iconos actuales y el manifest", () => {
   const ps = [
     "Add-Type -AssemblyName System.IO.Compression.FileSystem;",
