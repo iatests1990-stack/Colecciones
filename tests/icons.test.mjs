@@ -113,11 +113,14 @@ describe("Icon PNG validation", () => {
 
       assert.ok(foundIDAT, `IDAT chunk not found in ${path}`);
 
-      // Decompress and verify size
+      // Decompress and verify size. IHDR byte 25 is the color type:
+      // 2 = RGB (3 channels), 6 = RGBA (4 channels). Both are valid for
+      // extension icons; transparent backgrounds use RGBA.
       const decompressed = zlib.inflateSync(idatData);
-      // Each row: 1 filter byte + 3 bytes per pixel (RGB)
-      // height rows = height * (1 + 3 * width) bytes
-      const expectedSize = size * (1 + 3 * size);
+      const colorType = buf[25];
+      const channels = colorType === 6 ? 4 : 3;
+      // Each row: 1 filter byte + channels bytes per pixel.
+      const expectedSize = size * (1 + channels * size);
       assert.strictEqual(decompressed.length, expectedSize, `Decompressed size ${decompressed.length} should be ${expectedSize} for icon${size}.png`);
     });
   }
