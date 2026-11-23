@@ -1,7 +1,6 @@
 # Borradores de ficha de tienda — Colecciones
 
-Sustituye `[NOMBRE DEL PUBLICADOR]`, `[TU_EMAIL@ejemplo.com]` y la URL de la
-política de privacidad por tus datos reales antes de publicar.
+Datos finales listos para pegar en las fichas de Chrome Web Store y Edge Add-ons.
 
 ## Datos comunes
 
@@ -9,8 +8,8 @@ política de privacidad por tus datos reales antes de publicar.
 - **Nombre corto / descripción del manifest:** Guarda páginas, imágenes y notas en colecciones locales, con panel lateral, importación y exportación.
 - **Categoría sugerida:** Productividad / Herramientas de navegación (elige la que cada tienda ofrezca).
 - **Idioma de la ficha:** Español. Añade después una versión en inglés si quieres ampliar alcance.
-- **URL de privacidad:** la página publicada en `docs/privacy/index.html`.
-- **Soporte:** `[TU_EMAIL@ejemplo.com]`.
+- **URL de privacidad:** `https://iatests1990-stack.github.io/Colecciones/`
+- **Soporte:** `360422065+iatests1990-stack@users.noreply.github.com`
 - **Aviso recomendado en la ficha:** «No afiliado a Microsoft ni a Google.»
 
 ## Descripción larga (para ambas tiendas; > 250 caracteres)
