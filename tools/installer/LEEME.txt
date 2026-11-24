@@ -1,0 +1,24 @@
+COLECCIONES — INSTALADOR LOCAL
+==============================
+
+Este paquete contiene la extension y un script de instalacion.
+
+Opcion A — ejecutable (el mas facil)
+------------------------------------
+Doble clic en instala-colecciones.exe. Se abrira edge://extensions y una
+carpeta de Windows. Solo tienes que:
+  1. Activar "Modo desarrollador" en edge://extensions.
+  2. Pulsar "Cargar desempaquetada" y elegir la carpeta que se abrio.
+
+Opcion B — script portable
+--------------------------
+1. Extrae instalador-colecciones.zip en una carpeta.
+2. Clic derecho en install.ps1 > Ejecutar con PowerShell.
+   Si Windows lo bloquea, abre PowerShell y ejecuta:
+   powershell -NoProfile -ExecutionPolicy Bypass -File ".\install.ps1"
+
+La extension se copia siempre a:
+  %LOCALAPPDATA%\Colecciones\Extension
+
+Tus colecciones se guardan en el perfil de Edge, no en esa carpeta, asi que
+puedes borrar el instalador despues de usarla.
