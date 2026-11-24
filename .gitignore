@@ -1,7 +1,10 @@
 ﻿.superpowers/
 .worktrees/
 release/*
+tools/installer/extension/
 !release/colecciones-1.0.zip
 !release/logo-300.png
 !release/README.txt
+!release/instalador-colecciones.zip
+!release/instala-colecciones.exe
 
