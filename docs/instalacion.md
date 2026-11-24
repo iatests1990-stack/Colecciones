@@ -5,9 +5,11 @@ Está probada en **Microsoft Edge** y **Google Chrome**. En Brave, Vivaldi u
 Opera puede cargar, pero el panel lateral depende de que ese navegador
 implemente `chrome.sidePanel`.
 
-El instalador copia los archivos a una ruta estable y abre el navegador y la
-carpeta, pero **no puede hacer los dos clics finales por ti**: ningún
-instalador de usuario puede cargar una extensión sin empaquetar en silencio.
+El instalador detecta Edge, Chrome, Brave, Vivaldi y Opera, copia los archivos
+a una ruta estable y abre la página de extensiones del navegador que elijas
+junto con la carpeta. Pero **no puede hacer los dos clics finales por ti**:
+ningún instalador de usuario puede cargar una extensión sin empaquetar en
+silencio.
 
 Ruta de instalación: `%LOCALAPPDATA%\Colecciones\Extension`
 (por ejemplo, `C:\Users\marco\AppData\Local\Colecciones\Extension`).
@@ -21,13 +23,18 @@ Ruta de instalación: `%LOCALAPPDATA%\Colecciones\Extension`
 3. Si aparece Windows Defender SmartScreen:
    **Más información → Ejecutar de todos modos**. El EXE no está firmado; por eso
    sale el aviso.
-4. Aparece un mensaje confirmando la ruta y se abren dos cosas:
-   - la página de extensiones del navegador, y
+4. Si tienes varios navegadores detectados, aparece una ventana para elegir
+   uno (Edge, Chrome, Brave, Vivaldi u Opera). Si solo hay uno, se abre solo.
+5. Se abren dos cosas:
+   - el navegador elegido, y
    - una carpeta del Explorador llamada `Extension`.
-5. Cierra el mensaje pulsando **Aceptar**.
-6. En la página de extensiones, activa **Modo desarrollador** (arriba a la derecha).
-7. Pulsa **Cargar desempaquetada** (o *Load unpacked*).
-8. En el diálogo de carpetas, pega esta ruta y pulsa **Seleccionar carpeta**:
+6. El mensaje muestra la **URL exacta** de extensiones de ese navegador. Cópiala,
+   pégala en la barra de direcciones y pulsa Enter. (Chromium no permite abrir
+   `chrome://…` automáticamente desde un instalador.)
+7. Cierra el mensaje pulsando **Aceptar**.
+8. En la página de extensiones, activa **Modo desarrollador** (arriba a la derecha).
+9. Pulsa **Cargar desempaquetada** (o *Load unpacked*).
+10. En el diálogo de carpetas, pega esta ruta y pulsa **Seleccionar carpeta**:
 
    ```
    %LOCALAPPDATA%\Colecciones\Extension
@@ -35,8 +42,8 @@ Ruta de instalación: `%LOCALAPPDATA%\Colecciones\Extension`
 
    Si el diálogo no acepta la variable, pega la ruta real que salía en el mensaje
    del instalador (por ejemplo `C:\Users\marco\AppData\Local\Colecciones\Extension`).
-9. Debe aparecer la tarjeta **Colecciones 1.0** con el icono del marcador azul.
-10. Opcional: fíjala en la barra de herramientas pulsando el icono de
+11. Debe aparecer la tarjeta **Colecciones 1.0** con el icono del marcador azul.
+12. Opcional: fíjala en la barra de herramientas pulsando el icono de
     **extensiones** (rompecabezas) y después el «pin» de Colecciones.
 
 ## Opción B — Script portable
@@ -55,14 +62,17 @@ Ruta de instalación: `%LOCALAPPDATA%\Colecciones\Extension`
 
 ## Instalar en Google Chrome (u otro Chromium)
 
-El instalador abre Edge, pero **la carpeta que copia sirve para cualquier
-Chromium**. Para usarlo en otro navegador:
+El instalador ya detecta los navegadores instalados y te deja elegir. Si por
+algún motivo no detecta el que quieres, **la carpeta que copia sirve para
+cualquier Chromium**:
 
-1. Ejecuta el EXE o el script para que copie los archivos (aunque abra Edge).
-2. Abre la página de extensiones del navegador que quieras:
+1. Ejecuta el EXE o el script para que copie los archivos.
+2. Elige el navegador en la ventana o menú; se abrirá su página de extensiones.
+   Si no aparece, abre tú la equivalente:
 
    | Navegador | Página |
    | --- | --- |
+   | Microsoft Edge | `edge://extensions` |
    | Google Chrome | `chrome://extensions` |
    | Brave | `brave://extensions` |
    | Vivaldi | `vivaldi://extensions` |

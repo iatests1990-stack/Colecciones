@@ -1,24 +1,30 @@
-COLECCIONES — INSTALADOR LOCAL
-==============================
+COLECCIONES — INSTALADOR LOCAL (Chromium)
+==========================================
 
-Este paquete contiene la extension y un script de instalacion.
+Detecta Edge, Chrome, Brave, Vivaldi y Opera, copia la extension a una ruta
+estable, abre el navegador que elijas y muestra la URL de su pagina de
+extensiones para que la pegues en la barra de direcciones.
 
 Opcion A — ejecutable (el mas facil)
 ------------------------------------
-Doble clic en instala-colecciones.exe. Se abrira edge://extensions y una
-carpeta de Windows. Solo tienes que:
-  1. Activar "Modo desarrollador" en edge://extensions.
-  2. Pulsar "Cargar desempaquetada" y elegir la carpeta que se abrio.
+Doble clic en instala-colecciones.exe.
+Si sale SmartScreen: Mas informacion > Ejecutar de todos modos.
+Si tienes varios navegadores, aparecera una ventana para elegir uno. Si solo
+hay uno, se abrira directamente.
+
+Despues, en el navegador:
+  1. Activa "Modo desarrollador" en la pagina de extensiones.
+  2. Pulsa "Cargar desempaquetada" y elige la carpeta que se abrio.
 
 Opcion B — script portable
 --------------------------
-1. Extrae instalador-colecciones.zip en una carpeta.
-2. Clic derecho en install.ps1 > Ejecutar con PowerShell.
-   Si Windows lo bloquea, abre PowerShell y ejecuta:
-   powershell -NoProfile -ExecutionPolicy Bypass -File ".\install.ps1"
+Extrae instalador-colecciones.zip y ejecuta install.ps1 con PowerShell.
+El script muestra un menu numerado si detecta mas de un navegador.
+Si Windows lo bloquea:
+  powershell -NoProfile -ExecutionPolicy Bypass -File ".\install.ps1"
 
 La extension se copia siempre a:
   %LOCALAPPDATA%\Colecciones\Extension
 
-Tus colecciones se guardan en el perfil de Edge, no en esa carpeta, asi que
-puedes borrar el instalador despues de usarla.
+Tus colecciones se guardan en el perfil del navegador, no en esa carpeta.
+Guia completa: docs/instalacion.md

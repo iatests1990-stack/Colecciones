@@ -32,7 +32,7 @@ $csc = Join-Path $env:WINDIR "Microsoft.NET\Framework64\v4.0.30319\csc.exe"
 if (-not (Test-Path $csc)) { throw "No se encontró csc.exe" }
 Remove-Item $exe -Force -ErrorAction SilentlyContinue
 & $csc /nologo /target:winexe /out:"$exe" `
-  /r:System.dll /r:System.Windows.Forms.dll `
+  /r:System.dll /r:System.Drawing.dll /r:System.Windows.Forms.dll `
   /resource:"$zip,payload" `
   (Join-Path $installerDir "Installer.cs")
 if (-not (Test-Path $exe)) { throw "csc no generó el ejecutable" }

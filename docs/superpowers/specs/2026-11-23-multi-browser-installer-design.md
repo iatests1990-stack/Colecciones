@@ -1,6 +1,9 @@
 # Diseño: instalador multi-navegador Chromium
 
-Fecha: 2026-11-23. Cambio pequeño sobre el instalador local.
+Fecha: 2026-11-23. Cambio pequeño sobre el instalador local. **Implementado.**
+Nota: Chromium ignora las URLs internas (`chrome://…`) pasadas por línea de
+comandos, así que el instalador abre el navegador y muestra la URL exacta en un
+mensaje para que el usuario la pegue en la barra de direcciones.
 
 ## Intención y motivo
 
